@@ -1,0 +1,176 @@
+ISO_URL = "http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/mini.iso"
+HDD_SPACE = 20
+SHOW_CREDITS = 1
+MEMORY = 512
+SHOWLOG = 0
+AUTOSTART = 0  #When changing name of repl, Replit refreshes and starts loading the script.
+FULLSCREEN = 0
+USE_CURRENT_FILES = 0
+ASK_ENCRYPT_DISK = 1
+
+# In developement code, recommended you keep this on 1.
+SKIP_ISO_CHECK = 1
+
+# Main code begins
+if AUTOSTART == 0:
+  print("Press ENTER para arrancar la mamalona.")
+  input()
+
+import os
+
+print("############################################")
+print("#ddddkOkx;'lxc'........,lodooool:'.',::;   #")
+print("#  dddxOOkxc;oxl'........;odoooooool:'',;;;: #")
+print("#  dddxkkkxoldxl'........;odooddooodol;',,',;:: #")
+print("#  xddxxkkkxkkkl'........;oddddddddoodoc,''',,,,:               @@@@@@   @@@@@@@   @@@@@@     @@@@@@@@@@  @@@  @@@  #")
+print("#  xxxxkkkkkOOkc.........,ldddddddddddddc,''''..',;            @@!  @@@  @@!  @@@ @@!  @@@    @@! @@! @@! @@!  !@@  #")
+print("#  xxkkOOOOOkOk:.........'lddddddddddddddc,','....',:         @!@  !@!  @!@!!@!  @!@  !@!    @!! !!@ @!@  !@@!@!   #")
+print("#  xxkO000OOkOk:.........,oxddddddddddddddl:;'.....',;;;      !!:!!:!:  !!: :!!  !!:  !!!    !!:     !!:  !: :!!   #")
+print("#  xxkOK00OOOkd;.........;oxddddddddddddddxdl;..'...',,,;::    : :. :::  :   : :  : :. :      :      :   :::  :::  #")
+print("#  kxxOK00000Od,.........;oxxxxxdxxddxxddxxkxc'.,'..,cll:,,;; #")
+print("#  kxx0K00O00Oo,.'.......;dxxxxxxxxxxxxxxxkkkd;:d:..':oxdl;',,', #")
+print("#  kxxO0OkOOOko'.'''''...;dkxxxxxxxxxxxxxxkkkxlok:..,;oxxxo,','.'; #")
+print("#  kxxk0OOOOOxl'.'''.'''.:xkxxxxxxxxxxxxxkkkkkxxOo'.',lkxxxo;''..',; #")
+print("#  kxxO0K0O0Oxc...''..''.:xkkkkkkkkkkkkkkkkxxxkOOo'...:xkkkkdc'..,c;'                                 @@@@@@ @@@@@@@ @@@@@@@  #")
+print("#  kkO0000OOkxc.'....''..ckkkkkkkkkkkkkkkkkkkkkOOo'...:xOkkOkd:,,'ld:''':                            !@@       @!!   @@!  @@@  #")
+print("#  OkO00OOOOOkc....'..'..ckOkkkkkkkkkkkkkkkkkkkO0o,...:xOkkO0kodo':kd:'.',:                           !@@!!    @!!   @!@!!@!   #")
+print("#  OkO000OOOOx:...''..'..lOOOOOOOOOOOOOOOkkxkkkOOd,...;xOOO00Okkx,;xOx:.',,',                            !:!   !!:   !!: :!!   #")
+print("#  OO0000OOOOx:...''''..'oOOOOOOOOOOOOOOOOkOOOkOOd,...;x0OOO0OOOk;'dOOdc;:l;.',:                     ::.: :     :     :   : :  #")
+print("#  OO000OO00Ox;.''..'...,oOOOOOOOOO0000KK0kO0OO0Od,...;k0OOOO000O:'oOOOkl:xo;;;''; #")
+print("#  00000O000Oo,.'...'...'d0O00O0000000000OkkOOkkOd,...;k000O0K0KOc'lOOOOo:dOxoll;''; #")
+print("#  0000000000d,..''''''.'dOOKKK0KKK0KK00K0OOOkkkOx;...;k000O0000Oc.cOOkkd:d0OoxOlcl;,, #")
+print("#  OO0000000Oo,.','''''''coodxxoooolllcoxkkOkkkkOx;...,d0KK0kOOOOl'cOkkkd:o0Odx0ooxdoc::; #")
+print("#  xO0OO00000d'.''''''''..',;::;:lllc;;;,:dkkxxxkx;....;cloxkOOOOo',dkkkx:o0OoxKolddxcclollldkd:;, #")
+print("#  dk000000OOo''''''''.'..'',;:,,cool:coooxkxxkkkx;...'loccdO0000d',dOOOk:l0Olo0dcddxxkodo:cool;;:; #")
+print("#  xkOO0000kkl'...'''....,:'.':,.',,;;cOXKOkxxxxkx:...'oxllxOOO00d,.lkkOkcl00olOo:odoocccoxxl:::, #")
+print("#  xkkkOOOOkkl...''......,;,,;:;,:lloookOOkkkkkOOkc'...,:::cloodxo,'cddxkolxxl:l:,:c::;;,'',; #")
+print("#  kkkO000Okko,''',''''',:c:;,''''',,;,;;;::cccccc:,'',,''',,,,;;;;;;:::llcccccc;',;;;;: #")
+print("#  lllllllcc:;;,,,,',,,,,,,,,,,,,,,,,,;;,;;;;;;;;;::::::::::::::::::;;::::::::::;;: #")
+print("#  '''''''''',,,,,,,,,,,;;;;;;::::::;;;;;;;;;;;;;;,,,,,,,,,,,'''',,,,,,,,,,,,; #")
+print("#  ''''''''''''.''''.''''',,,,,;;;;;;:::::ccccllllloooooolc:;;;;;;;;,,,,,,;:l #")
+print("#  ;;:::::::ccccccclllllooooooddddddddxxxxxxxxxddoollccc:;;,,,,,,,''' #")
+print("#  ooooooooooodddddddddddddddddxxxxddddoooollcc::;;,,,,,,,,,,,'',; #")
+print("#  ddddddddddddddxxxxxxxddoolllccccccc::;;;;;,,,,,,,,,,''''',;: #")
+print("#  dddddddddddoollcc::;;;;;,;;;;;;;;;,,,,,,,,'','''''''',,: #")
+print("#  ddddollc:;,,'....'',;;:::::;,,,,,,,,''',''''''''''',;#")
+print("#      AutoVM - automatic VM creator       #")
+print("#                                          #")
+print("############################################")
+print("Version 2.0")
+if USE_CURRENT_FILES == 1:
+  print("Starting VM...")
+  if os.path.isfile("./disk1.img.cpt"):
+    print(
+        "Disk encrypted. Type in decryption key to decrypt in order to start the VM."
+    )
+    os.system("ccdecrypt ./disk1.img.cpt")
+    print("Did the decryption succeed?")
+    usermessage = input("Type 'soy mamon', or type anything else for yes. > ")
+    if usermessage == 'no':
+      print("Exiting...")
+      exit()
+  if FULLSCREEN == 1:
+    os.system("qemu-system-x86_64 -cdrom ./*.iso -m " + str(MEMORY) +
+              " -hda disk1.img -full-screen")
+    exit()
+  else:
+    os.system("qemu-system-x86_64 -cdrom ./*.iso -m " + str(MEMORY) +
+              " -hda disk1.img")
+    exit()
+
+print("Revisando que este chingon...")
+if os.path.isfile("./image.iso") == True:
+  os.remove("./image.iso")
+  print("Checandp si jala la iso")
+
+if os.path.isfile("./image.iso") == False:
+  print("al 100 papu.")
+
+if os.path.isfile("./disk1.img") == True:
+  os.remove("./disk1.img")
+  print("Deleted disk1.img")
+
+if os.path.isfile("./disk1.img") == False:
+  print("None found.")
+
+if SHOW_CREDITS == 1:
+  print("Script robado lacrosamente  by @STR-DEV")
+
+print("########################")
+print("Downloading JENYRIVERAXXX image...")
+print("########################")
+
+if SKIP_ISO_CHECK == 0:
+  print("Detecting file...")
+  N = 3
+  filetype = ISO_URL[-N:]
+  if filetype == "iso":
+    print("Detected ISO file. Downloading...")
+    os.system("wget -O image.iso " + ISO_URL)
+    print("Downloaded ISO file prro.")
+
+  if filetype == "zip":
+    print("Detected Zip file. Downloading...")
+    os.system("wget -O image.zip " + ISO_URL)
+    print("Unzipping...")
+    os.system("unzip image.zip")
+    print("Downloaded files.")
+
+  if filetype == ".gz":
+    print("Detected Gzip file. Downloading...")
+    os.system("wget -O image.gz " + ISO_URL)
+    print("Unzipping...")
+    os.system("gunzip image.gz")
+    print("Downloaded files.")
+else:
+  print("Skipped ISO Check. Downloading...")
+  os.system("wget -O image.iso " + ISO_URL)
+  print("Done.")
+passwdfordecrypt = ""  # This is here to make variable public.
+print("###############")
+print("chaquetendo el  HDD...")
+print("###############")
+if os.path.isfile("./disk1.img.cpt") == True:
+  print("Cannot create disk due to existing encrypted disk.")
+else:
+  os.system("qemu-img create -f qcow2 disk1.img " + str(HDD_SPACE) + "G")
+  print("Disk Successfully Created! si ves esto no valio verga krnañ")
+if ASK_ENCRYPT_DISK == 1:
+  print("Encrypt Disk?")
+  usermessage = input(
+      "Type 'yes' to do so, or type anything else to cancel. > ")
+  if usermessage == 'yes':
+    print("Encrypting Disk...")
+    encryptkey = input("Type in encryption password: ")
+    os.system("ccrypt -K " + encryptkey + " -e disk1.img")
+    passwdfordecrypt = encryptkey
+if SHOWLOG == 1:
+  print(str(HDD_SPACE))
+
+print("Processes completed, starting VM...")
+
+if os.path.isfile("./disk1.img.cpt") == True:
+  print(
+      "Disk encrpyted. Type in decryption key to decrypt in order to start the VM."
+  )
+  os.system("ccdecrypt ./disk1.img.cpt")
+  print("Did the decryption succeed?")
+  usermessage = input("Type 'no', or type anything else for yes. > ")
+  if usermessage == 'no':
+    print("Exiting...")
+    exit()
+if FULLSCREEN == 1:
+  os.system("qemu-system-x86_64 -cdrom ./*.iso -m " + str(MEMORY) +
+            " -hda disk1.img -full-screen")
+  if ASK_ENCRYPT_DISK == 1:
+    print("Exited QEMU. Encrypting disk...")
+    os.system("ccrypt -K " + passwdfordecrypt + " -e disk1.img")
+else:
+  os.system("qemu-system-x86_64 -cdrom ./*.iso -m " + str(MEMORY) +
+            " -hda disk1.img")
+  if ASK_ENCRYPT_DISK == 1:
+    print("Exited QEMU. Encrypting disk...")
+    os.system("ccrypt -K " + passwdfordecrypt + " -e disk1.img")
+
+if SHOWLOG == 1:
+  print(str(MEMORY))
